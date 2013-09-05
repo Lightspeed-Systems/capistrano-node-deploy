@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
     "lib/capistrano/node-deploy-forever.rb",
     "test/helper.rb"
   ]
-  s.homepage = "http://github.com/beekermememe/capistrano-node-deploy"
+  s.homepage = "https://github.com/beekermememe/capistrano-node-deploy"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"

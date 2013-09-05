@@ -15,10 +15,10 @@ require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "capistrano-node-deploy-forever"
-  gem.homepage = "http://github.com/beekermememe/capistrano-node-deploy"
+  gem.homepage = "https://github.com/beekermememe/capistrano-node-deploy"
   gem.license = "MIT"
-  gem.summary = %Q{Capistrano recipes for deploying node apps}
-  gem.description = %Q{Capistrano recipes for deploying node apps}
+  gem.summary = %Q{Capistrano recipes for deploying node apps using forever module to manage the daemon}
+  gem.description = %Q{Capistrano recipes for deploying node apps using forever module to manage the daemon}
   gem.email = "bkeogh123@gmail.com"
   gem.authors = ["Brendan Keogh"]
   # dependencies defined in Gemfile
