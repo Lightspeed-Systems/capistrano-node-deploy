@@ -1,0 +1,1 @@
+# Nothing here, see lib/capistrano/node-deploy-forever.rb

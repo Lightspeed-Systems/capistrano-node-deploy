@@ -14,13 +14,13 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "capistrano-node-deploy"
-  gem.homepage = "http://github.com/loopj/capistrano-node-deploy"
+  gem.name = "capistrano-node-deploy-forever"
+  gem.homepage = "http://github.com/beekermememe/capistrano-node-deploy"
   gem.license = "MIT"
   gem.summary = %Q{Capistrano recipes for deploying node apps}
   gem.description = %Q{Capistrano recipes for deploying node apps}
-  gem.email = "james@loopj.com"
-  gem.authors = ["James Smith"]
+  gem.email = "bkeogh123@gmail.com"
+  gem.authors = ["Brendan Keogh"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
@@ -39,7 +39,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "capistrano-node-deploy #{version}"
+  rdoc.title = "capistrano-node-deploy-forever #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end

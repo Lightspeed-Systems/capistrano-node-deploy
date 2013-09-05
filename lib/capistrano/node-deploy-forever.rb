@@ -43,8 +43,7 @@ Capistrano::Configuration.instance(:must_exist).load do |configuration|
   set :stdout_log_path, lambda { "#{shared_path}/log/#{node_env}.out.log" }
   set :stderr_log_path, lambda { "#{shared_path}/log/#{node_env}.err.log" }
 
-  set :upstart_job_name, lambda { "#{application}-#{node_env}" } unless defined? upstart_job_name
-  set :upstart_file_path, lambda { "/etc/init/#{upstart_job_name}.conf" } unless defined? upstart_file_path
+  set :forever_start_script, lambda { "#{application}-#{node_env}" } unless defined? upstart_job_name
   _cset(:upstart_file_contents) {
 <<EOD
 #!upstart
@@ -74,35 +73,22 @@ EOD
       run "ln -s #{shared_path}/node_modules #{release_path}/node_modules"
     end
 
-    task :check_upstart_config do
-      create_upstart_config if remote_file_differs?(upstart_file_path, upstart_file_contents)
-    end
-
-    desc "Create upstart script for this node app"
-    task :create_upstart_config do
-      temp_config_file_path = "#{shared_path}/#{application}.conf"
-
-      # Generate and upload the upstart script
-      put upstart_file_contents, temp_config_file_path
-
-      # Copy the script into place and make executable
-      sudo "cp #{temp_config_file_path} #{upstart_file_path}"
-    end
-
     desc "Start the node application"
     task :start do
-      sudo "start #{upstart_job_name}"
+      "cd /srv/node/stats_d_proxy_server/current/"
+      "forever start #{forever_start_script}"
     end
 
     desc "Stop the node application"
     task :stop do
-      sudo "stop #{upstart_job_name}"
+      "cd /srv/node/stats_d_proxy_server/current/"
+      "forever stop #{forever_start_script}"
     end
 
     desc "Restart the node application"
     task :restart do
-      sudo "stop #{upstart_job_name}; true"
-      sudo "start #{upstart_job_name}"
+      "cd /srv/node/stats_d_proxy_server/current/"
+      "forever restart #{forever_start_script}"
     end
   end
 

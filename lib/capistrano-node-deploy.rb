@@ -1,1 +1,0 @@
-# Nothing here, see lib/capistrano/node-deploy.rb
