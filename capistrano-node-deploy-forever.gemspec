@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Brendan Keogh"]
   s.date = "2013-08-01"
-  s.description = "Capistrano recipes for deploying node apps"
+  s.description = "Capistrano recipes for deploying node apps using forever module to start und stop"
   s.email = "bkeogh123@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
@@ -30,7 +30,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.24"
-  s.summary = "Capistrano recipes for deploying node apps"
+  s.summary = "Capistrano recipes for deploying node apps using forever to start and stop"
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
