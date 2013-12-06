@@ -1,13 +1,12 @@
-capistrano-node-deploy
-======================
+capistrano-node-deploy-forever
+==============================
 
-Capistrano recipe for deploying node.js apps.
+Capistrano recipe for deploying node.js apps. Thanks to James for pretty much doing all the hard work. This version simply uses forever module as the method of daemonizing the server. We have this supporting the deploy for a statsd proxy server which you can find at https://github.com/beekermememe/express_statsd_proxy.
 
 Features
 --------
 - Provides `cap deploy` functionality for your node app
 - Installs node packages (`npm install`) during deploys, using a shared folder for speed
-- Automatically creates upstart scripts for your node apps
 - Provides tasks for starting (`cap node:start`) and stopping (`cap node:stop`) your node app
 
 
@@ -16,30 +15,23 @@ Usage
 
 First install the gem:
 
-    sudo gem install capistrano-node-deploy
+    sudo gem install capistrano-node-deploy-forever
 
 or add it to your `Gemfile` if you have one:
 
-    gem "capistrano-node-deploy"
+    gem "capistrano-node-deploy-forever"
 
 Now add the following to your `Capfile`
 
-    require "capistrano/node-deploy"
+    require "capistrano/node-deploy-forever"
 
 
 Full Capfile Example
 --------------------
 
 ```ruby
-require "capistrano/node-deploy"
-
-set :application, "my-node-app-name"
-set :repository,  "git@github.com:/loopj/my-node-app-name"
-set :user, "deploy"
-set :scm, :git
-set :deploy_to, "/var/apps/my-app-folder"
-
-role :app, "myserver.com"
+require "capistrano/node-deploy-forever"
+require 'capistrano/ext/multistage'
 ```
 
 
@@ -60,14 +52,12 @@ set :node_binary, "/usr/bin/coffee"
 set :node_env, "staging"
     
 # Set the user to run node as (defaults to deploy)
-set :node_user, "james"
+set :node_user, "beekermememe"
 
-# Set the name of the upstart command (defaults to #{application}-#{node_env})
-set :upstart_job_name, "myserver"
 ```
 
 
-Contributing to capistrano-node-deploy
+Contributing to capistrano-node-deploy-forever
 --------------------------------------
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
@@ -82,6 +72,6 @@ Contributing to capistrano-node-deploy
 Copyright
 ---------
 
-Copyright (c) 2012 James Smith. See LICENSE.txt for
+Copyright (c) 2013 Brendan Keogh. See LICENSE.txt for
 further details.
 
