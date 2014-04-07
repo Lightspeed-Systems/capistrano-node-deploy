@@ -74,20 +74,17 @@ EOD
 
     desc "Start the node application"
     task :start do
-      "cd /srv/node/stats_d_proxy_server/current/"
-      "forever start #{forever_start_script}"
+      run "/home/mdm/start-node"
     end
 
     desc "Stop the node application"
     task :stop do
-      "cd /srv/node/stats_d_proxy_server/current/"
-      "forever stop #{forever_start_script}"
+      run "/home/mdm/stop-node"
     end
 
     desc "Restart the node application"
     task :restart do
-      "cd /srv/node/stats_d_proxy_server/current/"
-      "forever restart #{forever_start_script}"
+      run "/home/mdm/restart-node"
     end
   end
 
